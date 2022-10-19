@@ -30,7 +30,7 @@ class GFUITextField: UITextField {
         font                        = UIFont.preferredFont(forTextStyle: .title2)
         adjustsFontSizeToFitWidth   = true
         minimumFontSize             = 12
-        
+        autocapitalizationType      = .none
         backgroundColor         = .tertiarySystemBackground
         autocorrectionType      = .no
         returnKeyType           = .go
