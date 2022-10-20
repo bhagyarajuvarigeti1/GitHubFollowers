@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         configureLogoImageView()
         createDismissKeyBoard()
-     
+        userNameTextField.text = "github"
     }
     
     override func viewWillAppear(_ animated: Bool) {
