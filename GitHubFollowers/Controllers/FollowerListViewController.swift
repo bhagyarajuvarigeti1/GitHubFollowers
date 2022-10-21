@@ -9,9 +9,7 @@ import UIKit
 
 class FollowerListViewController: UIViewController {
     
-    enum Section {
-        case main
-    }
+    enum Section { case main }
 
     var userName: String!
     var page = 1
@@ -21,6 +19,7 @@ class FollowerListViewController: UIViewController {
     var followers = [Follower]()
     var filterFollowers = [Follower]()
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,8 +82,6 @@ class FollowerListViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCell.reuseId, for: indexPath) as! FollowersCell
             cell.set(follower: follower)
-            cell.layer.borderColor = UIColor.red.cgColor
-            cell.layer.borderWidth = 1
             return cell
             
         })
@@ -107,13 +104,14 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let offsetY         = scrollView.contentOffset.y
         let contentHeight   = scrollView.contentSize.height
         let height          = scrollView.frame.size.height
-        
+
         if offsetY > contentHeight - height {
             guard hasMoreFollower else { return }
             page += 1
             getFollowers(username: userName, page: page)
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let activeArray     = isSearching ? filterFollowers: followers
