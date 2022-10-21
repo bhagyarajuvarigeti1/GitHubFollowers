@@ -26,6 +26,9 @@
 		0484BF9D290072B0002406DE /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BF9C290072B0002406DE /* ErrorMessage.swift */; };
 		0484BF9F29007BA8002406DE /* GFUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BF9E29007BA8002406DE /* GFUIImageView.swift */; };
 		0484BFA229007BC4002406DE /* FollowersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484BFA129007BC4002406DE /* FollowersCell.swift */; };
+		04966E912901BD6A0063A2CA /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04966E902901BD6A0063A2CA /* UIHelper.swift */; };
+		04966E9B290207500063A2CA /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04966E9A290207500063A2CA /* EmptyStateView.swift */; };
+		04966E9D290232AD0063A2CA /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04966E9C290232AD0063A2CA /* UserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		0484BF9C290072B0002406DE /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		0484BF9E29007BA8002406DE /* GFUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUIImageView.swift; sourceTree = "<group>"; };
 		0484BFA129007BC4002406DE /* FollowersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCell.swift; sourceTree = "<group>"; };
+		04966E902901BD6A0063A2CA /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		04966E9A290207500063A2CA /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		04966E9C290232AD0063A2CA /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +112,13 @@
 		0484BF9029000659002406DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04966E99290202C10063A2CA /* CustomViews */,
+				04966E982902027C0063A2CA /* TextFields */,
+				04966E97290202670063A2CA /* ImageViews */,
+				04966E96290202590063A2CA /* Alerts */,
+				04966E95290202240063A2CA /* Labels */,
+				04966E94290202060063A2CA /* Buttons */,
 				0484BFA029007BAD002406DE /* cells */,
-				0484BF8A28FFA43C002406DE /* GFAlertViewController.swift */,
-				0484BF8828FFA39E002406DE /* GFBodyLabel.swift */,
-				0484BF8628FFA26D002406DE /* GFTitleLabel.swift */,
-				0484BF8228FF1F47002406DE /* GFUITextField.swift */,
-				0484BF8028FF1D0A002406DE /* GFUIButton.swift */,
-				0484BF9E29007BA8002406DE /* GFUIImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 				0484BF8428FF9C80002406DE /* FollowerListViewController.swift */,
 				0484BF7E28FF1300002406DE /* SearchViewController.swift */,
 				0484BF7C28FF12E5002406DE /* FavoritesViewController.swift */,
+				04966E9C290232AD0063A2CA /* UserInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0484BF9C290072B0002406DE /* ErrorMessage.swift */,
+				04966E902901BD6A0063A2CA /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -168,6 +176,55 @@
 				0484BFA129007BC4002406DE /* FollowersCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		04966E94290202060063A2CA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0484BF8028FF1D0A002406DE /* GFUIButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		04966E95290202240063A2CA /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				0484BF8828FFA39E002406DE /* GFBodyLabel.swift */,
+				0484BF8628FFA26D002406DE /* GFTitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		04966E96290202590063A2CA /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				0484BF8A28FFA43C002406DE /* GFAlertViewController.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		04966E97290202670063A2CA /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				0484BF9E29007BA8002406DE /* GFUIImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		04966E982902027C0063A2CA /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				0484BF8228FF1F47002406DE /* GFUITextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		04966E99290202C10063A2CA /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				04966E9A290207500063A2CA /* EmptyStateView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,9 +299,11 @@
 			files = (
 				0484BF8B28FFA43C002406DE /* GFAlertViewController.swift in Sources */,
 				0484BF8328FF1F47002406DE /* GFUITextField.swift in Sources */,
+				04966E9B290207500063A2CA /* EmptyStateView.swift in Sources */,
 				0484BFA229007BC4002406DE /* FollowersCell.swift in Sources */,
 				0484BF9A29006005002406DE /* NetworkManagar.swift in Sources */,
 				0484BF7F28FF1300002406DE /* SearchViewController.swift in Sources */,
+				04966E912901BD6A0063A2CA /* UIHelper.swift in Sources */,
 				0484BF9529000814002406DE /* Follower.swift in Sources */,
 				0484BF8D28FFC9AF002406DE /* UIViewController+Ext.swift in Sources */,
 				0484BF7D28FF12E5002406DE /* FavoritesViewController.swift in Sources */,
@@ -255,6 +314,7 @@
 				0484BF9729003CFF002406DE /* User.swift in Sources */,
 				0484BF8728FFA26D002406DE /* GFTitleLabel.swift in Sources */,
 				0484BF6928FF1238002406DE /* AppDelegate.swift in Sources */,
+				04966E9D290232AD0063A2CA /* UserInfoViewController.swift in Sources */,
 				0484BF6B28FF1238002406DE /* SceneDelegate.swift in Sources */,
 				0484BF9F29007BA8002406DE /* GFUIImageView.swift in Sources */,
 			);
