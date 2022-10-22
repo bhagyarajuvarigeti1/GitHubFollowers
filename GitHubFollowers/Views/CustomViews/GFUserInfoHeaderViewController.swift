@@ -39,6 +39,7 @@ class GFUserInfoHeaderViewController: UIViewController {
         nameLabel.text     = user.name
         locationLabel.text = user.location != "" ? user.login : "NA"
         locationImageView.image = UIImage(systemName: "mappin.and.ellipse")
+        locationImageView.tintColor = .secondaryLabel
         bioLabel.text = user.bio
     }
     
@@ -50,9 +51,7 @@ class GFUserInfoHeaderViewController: UIViewController {
         view.addSubview(locationLabel)
         view.addSubview(bioLabel)
         
-        
         let padding: CGFloat            = 20
-        let ImageViewPadding: CGFloat   = 12
         
         bioLabel.numberOfLines = 3
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,11 +87,6 @@ class GFUserInfoHeaderViewController: UIViewController {
             bioLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant:  padding)
-            
         ])
-        
     }
-    
-
-
 }

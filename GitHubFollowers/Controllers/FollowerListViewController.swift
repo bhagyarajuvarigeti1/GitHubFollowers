@@ -68,7 +68,6 @@ class FollowerListViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.showEmptyStateView(message: message, view: self.view)
                     }
-                    
                 }
                 self.followers.append(contentsOf: followers)
                 self.updateData(followers: self.followers)
@@ -83,7 +82,6 @@ class FollowerListViewController: UIViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowersCell.reuseId, for: indexPath) as! FollowersCell
             cell.set(follower: follower)
             return cell
-            
         })
     }
     
@@ -91,6 +89,17 @@ class FollowerListViewController: UIViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
+        
+        
+        //f1,f2,f3,f4
+        // f1,f2,f3,f4
+        //snapshot(hashcode, follower)//snapshot(hashcode, follower)// snaphot (hashcond, f3)// snapshot(hc, f4)
+        
+        
+        //snapshot(hashcode, follower)//snapshot(hashcode, follower))//snapshot(hashcode, follower)//snapshot(hashcode, follower)//snapshot(hashcode, follower)
+        
+        
+        //snapshot(hashcode, follower)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
         }

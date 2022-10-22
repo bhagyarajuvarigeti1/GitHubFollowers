@@ -33,7 +33,7 @@ class GFItemInfoView: UIView {
         addSubview(countLabel)
         
         symbolImageView.contentMode  = .scaleAspectFill
-        symbolImageView.tintColor    = .systemBlue
+        symbolImageView.tintColor    = .label
         let padding: CGFloat         = 20
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         
