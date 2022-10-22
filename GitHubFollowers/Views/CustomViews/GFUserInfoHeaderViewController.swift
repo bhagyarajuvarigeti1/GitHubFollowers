@@ -29,7 +29,6 @@ class GFUserInfoHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
         configure()
         assignValues()
     }
@@ -59,8 +58,6 @@ class GFUserInfoHeaderViewController: UIViewController {
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
-            
             avatarImageView.trailingAnchor.constraint(equalTo:  view.trailingAnchor, constant: -padding),
             avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
             avatarImageView.heightAnchor.constraint(equalToConstant: 90),

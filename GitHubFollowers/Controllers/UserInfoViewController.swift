@@ -18,21 +18,26 @@ class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
-        configureHeaderView()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissVC))
-        navigationItem.rightBarButtonItem = doneButton
+        configureViewController()
         
         getUser(userName: userName ?? "")
     }
     
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        configureHeaderView()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissVC))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
     func getUser(userName: String) {
         NetworkManager.shared.getUserInfo(for: userName) { result in
-            
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
+                    self.add(childVC: GFRepoAndGistInfoItemVC(user: user), to: self.ItemViewOne)
+                    self.add(childVC: GFFollowersAndFollowingItemInfoVC(user: user), to: self.ItemViewTwo)
                 }
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
@@ -43,14 +48,12 @@ class UserInfoViewController: UIViewController {
     func configureHeaderView() {
         let padding: CGFloat = 20
         let views = [headerView, ItemViewOne, ItemViewTwo]
-        for v in views {
-            view.addSubview(v)
-            v.backgroundColor = .systemBlue
-            v.layer.cornerRadius = 16
-            v.translatesAutoresizingMaskIntoConstraints = false
+        for itemView in views {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                v.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  padding),
-                v.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -padding)
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -padding)
             ])
         }
         
@@ -59,10 +62,10 @@ class UserInfoViewController: UIViewController {
             headerView.heightAnchor.constraint(equalToConstant: 200),
             
             ItemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
-            ItemViewOne.heightAnchor.constraint(equalToConstant: 200),
+            ItemViewOne.heightAnchor.constraint(equalToConstant: 150),
             
             ItemViewTwo.topAnchor.constraint(equalTo: ItemViewOne.bottomAnchor, constant: padding),
-            ItemViewTwo.heightAnchor.constraint(equalToConstant: 200)
+            ItemViewTwo.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
